@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'home';
+  isDisabled = false;
+  myId = 'testId';
+  myString = 'I like web development';
 }
