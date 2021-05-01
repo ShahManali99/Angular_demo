@@ -10,4 +10,9 @@ export class AppComponent {
   isDisabled = false;
   myId = 'testId';
   myString = 'I like web development';
+  courses = [1,2];
+
+  buttonClick(){
+    alert("You clicked Me");
+  }
 }
