@@ -346,15 +346,15 @@
     <!--String Interpolation-->
     <span>{{ title }} app is running!</span>
 
-    <!--Property Binding-->
-    <input bind-disabled="isDisabled" [id]="myId" [value]="myString" />
-
     <svg id="rocket-smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
       <title>Rocket Ship Smoke</title>
       <path id="Path_40" data-name="Path 40" d="M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z" transform="translate(-147.025 -140.939)" fill="#f5f5f5"/>
     </svg>
 
   </div>
+
+  <!--Property Binding-->
+  <input bind-disabled="isDisabled" [id]="myId" [value]="myString" />
 
   <!--New Component-->
   <app-login></app-login>
@@ -377,11 +377,42 @@
 
     <!--ngSwitch-->
     <ul class="nav nav-pills">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Menu 1</a></li>
-      <li><a href="#">Menu 2</a></li>
-      <li><a href="#">Menu 3</a></li>
+      <li [class.active]="viewmode=='home'"><a (click)="viewmode='home'">Home</a></li>
+      <li [class.active]="viewmode=='menu1'"><a (click)="viewmode='menu1'">Menu 1</a></li>
+      <li [class.active]="viewmode=='menu2'"><a (click)="viewmode='menu2'">Menu 2</a></li>
+      <li [class.active]="viewmode=='menu3'"><a (click)="viewmode='menu3'">Menu 3</a></li>
     </ul>
-  
+    <div [ngSwitch]="viewmode">
+      <p *ngSwitchCase="'home'">Home is clicked</p>
+      <p *ngSwitchCase="'menu1'">Menu1 is clicked</p>
+      <p *ngSwitchCase="'menu2'">Menu2 is clicked</p>
+      <p *ngSwitchCase="'menu3'">Menu3 is clicked</p>
+      <p *ngSwitchDefault>Invalid</p>
+    </div>
+
+    <!--ngFor-->
+    <ul *ngFor="let nam of names">
+      <li>{{nam.id}}.{{nam.name}}</li>
+      <button (click)="onRemove(nam)">Remove</button>
+      <button (click)="onUpdate(nam)">Update</button>
+    </ul>
+    <button (click)="onAdd()">Add</button>
+
+    <!--Two-way data binding-->
+    <!--import FormsModule-->
+    <p>Enter your first name</p>
+    <input [(ngModel)] = "name.first" type="text">
+    <p>Enter your last name</p>
+    <input [(ngModel)] = "name.last" type="text">
+    <p> Welcome {{name.first}} {{name.last}}</p>
+
+    <!--Special Var event-->
+    <button (click)="onClick($event)">Check</button>
+
+    <!--Attribute directive-->
+    <button [ngClass]="{'btn-red':!this.isDisabled,'btn-style':this.isDisabled}" (click)="toggle()">ngClassButton</button>
 <router-outlet></router-outlet>
 
+<!--Custom Directives-->
+<h1>Normal Heading</h1>
+<h1 appCustomStyle>Custom Heading</h1>
