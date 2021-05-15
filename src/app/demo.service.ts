@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class DemoService {
 
-  //url = 'https://jsonplaceholder.typicode.com/users'
+  url = 'https://jsonplaceholder.typicode.com/users'
   constructor(private http: HttpClient) { }
 
   getEmployees(){
@@ -18,9 +18,9 @@ export class DemoService {
     ];
   }
 
-  // employee(): Observable<any>{
-  //   return this.http.get(this.url);
-  // }
+  employee(): Observable<any>{
+     return this.http.get(this.url);
+   }
 
 alertMe(){
   alert("Hi")

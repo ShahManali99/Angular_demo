@@ -1,4 +1,4 @@
 <p>signup works!</p>
 <ul *ngFor = "let employee of employees">
-    <li (click)="onSelect(employee)">{{ employee.id }}.{{ employee.name }} - {{ employee.age }} </li>
+    <li (click)="onSelect(employee)"><span class="list-group-item list-group-item-dark">{{ employee.id }}.{{ employee.name }} - {{ employee.phone }} </span></li>
 </ul>

@@ -54,6 +54,6 @@ export class AppComponent {
   }
 
   getInfo(information: any){
-      console.log(information.name)
+      console.log(information)
   }
 }

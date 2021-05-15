@@ -1,0 +1,22 @@
+<!--Template drivedn form-->
+<form (ngSubmit)="onSubmit()" #myForm="ngForm">
+    <div class="form-group" rounded shadow bg-white>
+      <label for="username">Username*</label>
+      <input type="text" class="form-control" id="username" name ="username" placeholder="Enter username" required [(ngModel)] = "username">
+      <small *ngIf = "username">Your username is {{username}}</small>
+    </div>
+    <div class="form-group">
+      <label for="email">Email*</label>
+      <input type="email" class="form-control" id="email" name = "email" placeholder="Enter email" required ngModel email #email="ngModel">
+      <small class="text-danger" *ngIf="!email.valid && email.touched">Enter valid email</small>
+    </div>
+    <div class="form-group">
+        <label for="course">Select course</label>
+        <select class="form-control" id="course" name="course" [ngModel]="defaultCourse">
+            <option value="Angular">Angular</option>
+            <option value="React">React</option>
+            <option value="Vue">Vue</option>
+        </select>
+      </div>
+    <button type="submit" [disabled]="!myForm.valid" class="btn btn-success">Submit</button>
+  </form>

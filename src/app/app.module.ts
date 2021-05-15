@@ -8,11 +8,13 @@ import { DemoService } from './demo.service';
 import { CustomStyleDirective } from './custom-style.directive';
 import { HighlightPipe } from './highlight.pipe';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ContactUsComponent } from './contact-us.component';
 @NgModule({
   declarations: [
     AppComponent,
+    ContactUsComponent,
     CustomStyleDirective,
-    HighlightPipe
+    HighlightPipe,
   ],
   imports: [
     BrowserModule,

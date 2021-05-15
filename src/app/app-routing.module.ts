@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContactUsComponent } from './contact-us.component';
 import { AboutComponent } from './users/about.component';
 import { LoginComponent } from './users/login.component';
 import { PageNotFoundComponent } from './users/page-not-found.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
     {path: 'tv', component: TvComponent},
     {path: 'washing-machine', component: WashingMachineComponent}
   ]},
+  {path: 'contacts', component: ContactUsComponent},
   {path: '**', component: PageNotFoundComponent},
 ];
 

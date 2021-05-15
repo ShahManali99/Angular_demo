@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DemoService } from '../demo.service';
 import { Router } from '@angular/router';
+import { Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
@@ -13,12 +14,13 @@ export class SignupComponent implements OnInit {
   constructor(private _demoService:DemoService, private router:Router) { }
 
   ngOnInit(): void {
-    this.employees = this._demoService.getEmployees();
-    //this.employees.employee().subscribe(employeeData => this.employees = employeeData)
+    //this.employees = this._demoService.getEmployees();
+    this._demoService.employee().subscribe(employeeData => this.employees = employeeData)
   }
 
   onSelect(employee: any){
     this.router.navigate(['/users/signup', employee.name])
   }
+
 
 }
