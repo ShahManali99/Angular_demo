@@ -9,9 +9,12 @@ export class AppComponent {
   title = 'home';
   isDisabled = false;
   myId = 'testId';
+  message = "Hello world how are you doing?"
   myString = 'I like web development';
   courses = [1,2];
   viewmode = 'home';
+  msg = "";
+  public date = new Date();
   name = {
     first:'John',
     last:'Smith',
@@ -44,5 +47,13 @@ export class AppComponent {
 
   toggle(){
     this.isDisabled=!this.isDisabled;
+  }
+
+  onAddCart(event: any){
+    this.msg = event.target.value + " added to cart";
+  }
+
+  getInfo(information: any){
+      console.log(information.name)
   }
 }

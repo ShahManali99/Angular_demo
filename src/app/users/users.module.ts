@@ -3,16 +3,27 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { SignupComponent } from './signup.component';
 import { DemoService } from '../demo.service';
+import { AppRoutingModule, routingComponents } from '../app-routing.module';
+import { LaptopComponent } from './products/laptop/laptop.component';
+import { MobileComponent } from './products/mobile/mobile.component';
+import { TvComponent } from './products/tv/tv.component';
+import { WashingMachineComponent } from './products/washing-machine/washing-machine.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    SignupComponent
+    routingComponents,
+    LaptopComponent,
+    MobileComponent,
+    TvComponent,
+    WashingMachineComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     DemoService

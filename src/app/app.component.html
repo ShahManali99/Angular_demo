@@ -304,6 +304,17 @@
   }
 </style>
 
+<header>
+  <nav>
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>  
+  </nav>
+</header>
+
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
   <img
@@ -326,6 +337,31 @@
       </svg>
     </a>
 </div>
+
+<header>
+  <nav>
+    <ul class="nav nav-tabs">
+      <li class="active"><a routerLink="/users/login" routerLinkActive="active" href="/">Home</a></li>
+      <li><a routerLink="/users/about" routerLinkActive="active" href="/users/about">About Us</a></li>
+      <li><a routerLink="/users/products" routerLinkActive="active" href="users/products">Products</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>  
+  </nav>
+</header>
+
+<router-outlet></router-outlet>
+
+<carousel>
+  <slide>
+    <img src="assets/images/nature_1.jpg" alt="first slide" style="display: block; width: 100%;">
+  </slide>
+  <slide>
+    <img src="assets/images/nature_2.jpg" alt="second slide" style="display: block; width: 100%;">
+  </slide>
+  <slide>
+    <img src="assets/images/nature_3.jpg" alt="third slide" style="display: block; width: 100%;">
+  </slide>
+</carousel>
 
 <div class="content" role="main">
 
@@ -353,6 +389,11 @@
 
   </div>
 
+  <!--Pipes-->
+<p>{{ date | date:'fullDate' | uppercase }}</p>
+<p>{{ 25 | currency:'EUR':'code' }} </p>
+<p> {{ 2.456 | number:'2.1-2' }}</p>
+
   <!--Property Binding-->
   <input bind-disabled="isDisabled" [id]="myId" [value]="myString" />
 
@@ -362,6 +403,15 @@
 
   <!--Event Binding-->
   <button (click)="buttonClick()">Click Me</button>
+  <br>
+  <button (click)="onAddCart($event)" value="Laptop" name="manali">Laptop</button>
+  <button (click)="onAddCart($event)" value="TV">TV</button>
+  <button (click)="onAddCart($event)" value="Washing Machine">Washing Machine</button>
+  <p> {{ msg }}</p>
+
+  <!--Template reference variable-->
+  <input #information type="text" value="tutorials" name="manali">
+  <button (click)="getInfo(information)">Get Info</button>
 
   <!--Structural Directives-->
   <!--ngIf-->
@@ -411,8 +461,18 @@
 
     <!--Attribute directive-->
     <button [ngClass]="{'btn-red':!this.isDisabled,'btn-style':this.isDisabled}" (click)="toggle()">ngClassButton</button>
-<router-outlet></router-outlet>
+
 
 <!--Custom Directives-->
-<h1>Normal Heading</h1>
-<h1 appCustomStyle>Custom Heading</h1>
+<h1>{{ "Normal Heading" }}</h1>
+<h1 appCustomStyle>{{ "Custom Heading" | highlight:false:"doublequote" }}</h1>
+
+<!--ngx Bootstrap-->
+
+<h1>Routing and Navigation</h1>
+<nav>
+  <a routerLink="/users/login" routerLinkActive="active">Login</a>
+  <a routerLink="/users/signup" routerLinkActive="active">Signup</a>
+</nav>
+<router-outlet></router-outlet>
+

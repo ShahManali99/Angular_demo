@@ -1,3 +1,4 @@
+import { LEADING_TRIVIA_CHARS } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import { DemoService } from '../demo.service';
 
@@ -16,4 +17,7 @@ export class LoginComponent implements OnInit {
     this.employees = this._demoService.getEmployees();
   }
 
+  onClick(){
+    this._demoService.alertMe();
+  }
 }

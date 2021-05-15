@@ -6,17 +6,20 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { DemoService } from './demo.service';
 import { CustomStyleDirective } from './custom-style.directive';
-
+import { HighlightPipe } from './highlight.pipe';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 @NgModule({
   declarations: [
     AppComponent,
-    CustomStyleDirective
+    CustomStyleDirective,
+    HighlightPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     UsersModule,
-    FormsModule
+    FormsModule,
+    CarouselModule.forRoot()
   ],
   providers: [DemoService],
   bootstrap: [AppComponent]
