@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { UsersModule } from './users/users.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DemoService } from './demo.service';
 import { CustomStyleDirective } from './custom-style.directive';
 import { HighlightPipe } from './highlight.pipe';
@@ -21,6 +21,7 @@ import { ContactUsComponent } from './contact-us.component';
     AppRoutingModule,
     UsersModule,
     FormsModule,
+    ReactiveFormsModule,
     CarouselModule.forRoot()
   ],
   providers: [DemoService],
